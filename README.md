@@ -1,6 +1,8 @@
 # **ToDo App**
 
-**This repository contains a project implementing the following technologies:Repository Pattern, Unit Of Work, Entity Framework Core, LINQ, and ASP.NET Core, Identity Server and AutoMapper. The main purpose of this project is to design an API for a ToDo Application, allowing users to add, update or remove ToDo items.**
+**This repository contains a project implementing the following technologies: 
+Repository Pattern, Unit Of Work, Entity Framework Core, LINQ, and ASP.NET Core, Identity Server and AutoMapper. 
+The main purpose of this project is to design an API for a ToDo Application, allowing users to add, update or remove ToDo items.**
 
 *Account Management Endpoints*
 
