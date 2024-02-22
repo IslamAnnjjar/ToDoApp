@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "3a533530-2fdb-4511-82df-88b098e0a03e",
+		"name": "ToDo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "29833777"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const user = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Has properties\", function () {\r",
+							"    pm.expect(user).to.have.property('username');\r",
+							"    pm.expect(user).to.have.property('token');\r",
+							"});\r",
+							"\r",
+							"if (pm.test(\"Has properties\")) {\r",
+							"    pm.globals.set('token', user.token);\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"username\": \"string\",\r\n\t\"password\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:7247/api/Account/login"
+			},
+			"response": []
+		},
+		{
+			"name": "GetLiveToDos",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserToDos",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": "https://localhost:7247/api/ToDo"
+			},
+			"response": []
+		},
+		{
+			"name": "GetById",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Add a todo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"string\",\r\n  \"isCompleted\": true,\r\n  \"userId\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a todo",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": "https://localhost:7247/api/ToDo/update-todo/3"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a todo",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": "https://localhost:7247/api/ToDo/delete-todo/"
+			},
+			"response": []
+		}
+	]
+}
