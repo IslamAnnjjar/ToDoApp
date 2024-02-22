@@ -32,7 +32,7 @@ The main purpose of this project is to design an API for a ToDo Application, all
 1. Build and run the project.
 
 > [!NOTE]
-   > the project *will manage creating, migrating on its own after build.*
+   > the project *will manage creating and migrating on its own after build.*
 > 
-   > Import ToDo.postman_collection.json file into your Postman Client for full API Decumentation. 
+   > Import ToDo.postman_collection.json file into your Postman Client for full API Documentation. 
 
