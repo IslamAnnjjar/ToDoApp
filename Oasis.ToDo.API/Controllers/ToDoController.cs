@@ -71,9 +71,9 @@ namespace Oasis.ToDoAPP.API.Controllers
         {
             await _unitOfWork.ToDoRepository.DeleteToDoAsync(id);
 
-            if (await _unitOfWork.Complete()) return Ok("Product deleted successfully");
+            if (await _unitOfWork.Complete()) return Ok("ToDo deleted successfully");
 
-            else return NotFound($"Product with Id = {id} not found");
+            else return NotFound($"ToDo with Id = {id} not found");
             
         }
     }
